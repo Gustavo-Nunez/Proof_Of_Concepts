@@ -1,12 +1,29 @@
-const math = require("./math");
-const greet = require("./greetings");
-const hello = require("./greetings/hello");
+const asyncAwait = require("./src/asyncAwait");
 
-console.log(math.add(4, 5));
-console.log(math.divide(4, 5));
-console.log(math.multiply(4, 5));
-console.log(math.substract(4, 5));
+asyncAwait.greet("Gustavo Nunez");
 
-console.log(greet.greet("Gustavo"));
+asyncAwait.withPromise("Gustavo", "Nunez")
+.then(n => console.log(n));
 
-console.log(hello.sayHello("Gus"));
+async function asyncAwaitF() {
+    const name = await asyncAwait.withPromise("Gustavo", "Nunez");
+    console.log(name);
+}
+
+asyncAwaitF();
+// const call = require("./src/call");
+// const add = require("./src/addition");
+// const intensive = require("./src/intensive");
+
+// console.log(call.sync("Gustavo Nunez"));
+
+// call.withCallback("Gustavo Nunez", call.sync);
+
+// call.withPromise("Gustavo Nunez")
+// .then(name => console.log(name));
+
+// add.asyncSum(2,4);
+// add.syncSum(1,2);
+
+// intensive.simulateSync();
+// intensive.simulateAsync();
